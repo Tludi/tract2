@@ -11,7 +11,44 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120708022805) do
+ActiveRecord::Schema.define(:version => 20120711220155) do
+
+  create_table "costbooks", :force => true do |t|
+    t.string   "name"
+    t.string   "material"
+    t.decimal  "material_cost"
+    t.decimal  "labor_cost"
+    t.string   "division"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "materials", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.decimal  "crew"
+    t.integer  "dialyOutput"
+    t.decimal  "laborHours"
+    t.string   "unit"
+    t.decimal  "beforeCostMaterial"
+    t.decimal  "beforeCostLabor"
+    t.decimal  "beforeCostEquipment"
+    t.decimal  "beforeCostTotal"
+    t.decimal  "overheadProfitTotal"
+    t.integer  "costbook_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "contact"
+    t.date     "bidDate"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"

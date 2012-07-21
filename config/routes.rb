@@ -1,6 +1,12 @@
 Tract2::Application.routes.draw do
-  get "dashboard/index"
+  
+  resources :costbooks do
+    resources :materials
+  end
+  resources :projects
 
+  get "dashboard/index"
+  match '/projects/:id/edit' => 'projects#edit', :via => :post
   authenticated :user do
     root :to => 'dashboard#index'
   end

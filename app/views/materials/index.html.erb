@@ -1,0 +1,43 @@
+<h1>Listing materials</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Item</th>
+    <th>Crew</th>
+    <th>Dly</th>
+    <th>LabHrs</th>
+    <th>Units</th>
+    <th>MatCst</th>
+    <th>LbrCst</th>
+    <th>Eqpt</th>
+    <th>CostTot</th>
+    <th>O&PTot</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @materials.each do |material| %>
+  <tr>
+    <td><%= material.name %></td>
+    <td><%= material.description %></td>
+    <td><%= material.crew %></td>
+    <td><%= material.dialyOutput %></td>
+    <td><%= material.laborHours %></td>
+    <td><%= material.unit %></td>
+    <td><%= material.beforeCostMaterial %></td>
+    <td><%= material.beforeCostLabor %></td>
+    <td><%= material.beforeCostEquipment %></td>
+    <td><%= material.beforeCostTotal %></td>
+    <td><%= material.overheadProfitTotal %></td>
+    <td><%= link_to 'Show', material %></td>
+    <td><%= link_to 'Edit', edit_material_path(material) %></td>
+    <td><%= link_to 'Destroy', material, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Material', new_material_path %>

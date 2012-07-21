@@ -2,5 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-
-$("#project_bidDate").datepicker();
+jQuery ->
+  $(".slidingDiv").hide()
+  $(".show_hide").show()
+ 
+  $('.show_hide').click ->
+    $(".slidingDiv").slideToggle()

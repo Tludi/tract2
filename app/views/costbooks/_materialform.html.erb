@@ -1,0 +1,37 @@
+<%= form_for [@costbook, @material], :html => { :class => 'well form-horizontal' } do |f| %>
+
+
+  <div class="control-group">
+      <%= f.text_field :name, :class => 'text_field input-small span3', 
+                      :placeholder => 'Name' %>
+
+      <%= f.text_field :description, 
+                      :class => 'text_field input-small span4',
+                      :placeholder => 'Description' %>
+  </div>
+  <div class="control-group">
+      <%= f.text_field :crew, :class => 'text_field input-small', 
+                    :placeholder => '# Crew per hr' %>
+      <%= f.number_field :dialyOutput, :class => 'text_field input-small', 
+                    :placeholder => 'Daily Output' %>
+      <%= f.text_field :laborHours, :class => 'text_field input-small', 
+                    :placeholder => 'Labor Hours' %>
+      <%= f.text_field :unit, :class => 'text_field input-small', 
+                    :placeholder => 'Units' %>
+      <%= f.text_field :beforeCostMaterial, :class => 'text_field input-small', 
+                    :placeholder => 'Material Cost' %>
+      <%= f.text_field :beforeCostLabor, :class => 'text_field input-small', 
+                    :placeholder => 'Labor Cost' %>
+      <%= f.text_field :beforeCostEquipment, :class => 'text_field input-small', 
+                    :placeholder => 'Equipment' %>
+  </div>
+  <div class="control-group">
+      <%= f.text_field :beforeCostTotal, :class => 'text_field input-small', 
+                    :placeholder => 'Base Cost Total' %>
+      <%= f.text_field :overheadProfitTotal, :class => 'text_field input-small', 
+                    :placeholder => 'O&P Total' %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
