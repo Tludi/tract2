@@ -9,7 +9,7 @@
     <ul class="dropdown-menu">
 
       <% @costbooks.each do |costbook| %>
-          <li><%= link_to "#{costbook.name}", costbook_path(costbook.id) %></li>
+          <li><%= link_to "#{costbook.name} bit", costbook_path(costbook.id) %></li>
       <% end %>
       <hr/>
       <li><%= link_to "Costbooks", costbooks_path %></li>

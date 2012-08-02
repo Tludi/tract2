@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
-
+    @project = Project.new
+    @company_name = "Diligent Agility"
     respond_to do |format|
       format.html
       format.json { render json: @projects }

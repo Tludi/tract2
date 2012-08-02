@@ -1,0 +1,29 @@
+<h1>Listing csi_divisions</h1>
+
+<table>
+  <tr>
+    <th>Main number</th>
+    <th>Main name</th>
+    <th>Sub number</th>
+    <th>Sub name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @csi_divisions.each do |csi_division| %>
+  <tr>
+    <td><%= csi_division.main_number %></td>
+    <td><%= csi_division.main_name %></td>
+    <td><%= csi_division.sub_number %></td>
+    <td><%= csi_division.sub_name %></td>
+    <td><%= link_to 'Show', csi_division %></td>
+    <td><%= link_to 'Edit', edit_csi_division_path(csi_division) %></td>
+    <td><%= link_to 'Destroy', csi_division, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Csi division', new_csi_division_path %>

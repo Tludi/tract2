@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Main number:</b>
+  <%= @csi_division.main_number %>
+</p>
+
+<p>
+  <b>Main name:</b>
+  <%= @csi_division.main_name %>
+</p>
+
+<p>
+  <b>Sub number:</b>
+  <%= @csi_division.sub_number %>
+</p>
+
+<p>
+  <b>Sub name:</b>
+  <%= @csi_division.sub_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_csi_division_path(@csi_division) %> |
+<%= link_to 'Back', csi_divisions_path %>

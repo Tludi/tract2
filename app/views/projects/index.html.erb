@@ -1,2 +1,46 @@
-<h1>Project#index</h1>
-<p>Find me in app/views/project/index.html.erb</p>
+<div  class="span10 center">
+<h2>My Projects</h2>
+<br/>
+<div class="row span9">
+  <div class="span9">
+    <header class="navbar">
+      <nav class="navbar-inner">
+        <div class="container">
+          <%= render 'projectnavigation' %>
+        </div>
+      </nav>
+    </header>
+
+    <div class="slidingDiv span8">
+      <h2>New Project</h2>
+      <%= render 'dashboard/projectform', :object => @project %>
+      <a href="#" class="show_hide">hide</a>
+    </div>
+
+
+    <table class="table table-striped ">
+      <thead><tr>
+        <th>ID</th>
+        <th>Project</th>
+        <th class="push-right">Takeoffs</th>
+      </tr></thead>
+      <tbody><tr>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.id %></td>
+        <td><%= link_to "#{project.name}".capitalize %></td>
+        <td>number</td>
+        <td>
+          <%= link_to "<i class='icon-edit'></i>".html_safe, edit_project_path(project), :controller => :projects, :method => :edit %>
+          <%= link_to "<i class='icon-remove'></i>".html_safe, project_path(project), :confirm => "Are you sure?", :controller => :projects, :method => :delete %>
+        </td>
+
+      </tr>
+    <% end -%>
+
+      </tbody>
+ 
+    </table>
+  </div>
+</div>
+</div>

@@ -1,0 +1,33 @@
+<%= form_for(@csi_division) do |f| %>
+  <% if @csi_division.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@csi_division.errors.count, "error") %> prohibited this csi_division from being saved:</h2>
+
+      <ul>
+      <% @csi_division.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :main_number %><br />
+    <%= f.number_field :main_number %>
+  </div>
+  <div class="field">
+    <%= f.label :main_name %><br />
+    <%= f.text_field :main_name %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_number %><br />
+    <%= f.number_field :sub_number %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_name %><br />
+    <%= f.text_field :sub_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

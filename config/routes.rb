@@ -1,5 +1,9 @@
-Tract2::Application.routes.draw do
+  Tract2::Application.routes.draw do
   
+  # resources :dashboards
+
+  resources :csi_divisions
+
   resources :costbooks do
     resources :materials
   end

@@ -1,5 +1,6 @@
+<h2>DASHBOARD</h2>
 <div class="row">
-  <div class="span9">
+  <div class="span6">
     <header class="navbar">
       <nav class="navbar-inner">
         <div class="container">
@@ -7,21 +8,24 @@
         </div>
       </nav>
     </header>
+
+    <div class="slidingDiv span5">
+      <h2>New Project</h2>
+      <%= render 'projectform', :object => @project %>
+      <a href="#" class="show_hide">hide</a>
+    </div>
+
+
     <table class="table table-striped ">
       <thead><tr>
         <th>ID</th>
         <th>Project</th>
-        <th>Address</th>
-        <th>Bid Date</th>
       </tr></thead>
       <tbody><tr>
-    <% @projects.each do |project| %>
+    <% @projects.take(3).each do |project| %>
       <tr>
         <td><%= project.id %></td>
-        <td><%= link_to "#{project.name}" %></td>
-        <td><%= project.address1 %></td>
-        <td><%= project.bidDate %></td>
-
+        <td><%= link_to "#{project.name}".capitalize, "#" %></td>
         <td>
           <%= link_to "<i class='icon-edit'></i>".html_safe, edit_project_path(project), :controller => :projects, :method => :edit %>
           <%= link_to "<i class='icon-remove'></i>".html_safe, project_path(project), :confirm => "Are you sure?", :controller => :projects, :method => :delete %>
@@ -29,11 +33,14 @@
 
       </tr>
     <% end -%>
+
       </tbody>
+ 
     </table>
+         <p class="well span5 center"><%= link_to "Show All Projects", "#" %></p>
   </div>
-  <div class="span3">
-    <h2>New Project</h2>
-    <%= render "projectform", :object => @project %>
+  <div class="span4">
+    <h2>Recent Actions</h2>
   </div>
 </div>
+
