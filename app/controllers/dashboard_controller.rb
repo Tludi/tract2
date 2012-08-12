@@ -1,4 +1,7 @@
 class DashboardController < ApplicationController
+
+  before_filter :require_login
+  
   def index
     @user = User.all
     @projects = Project.all
