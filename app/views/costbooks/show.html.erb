@@ -40,8 +40,8 @@
         <th></th>
       </tr></thead>
 
-      <tbody>
         <% @costbook.materials.each do |material| %>
+      <tbody>
           <tr>
             <td><%= material.name %></td>
             <td><%= material.description %></td>
@@ -54,11 +54,10 @@
             <td><%= material.beforeCostEquipment %></td>
             <td><%= material.beforeCostTotal %></td>
             <td><%= material.overheadProfitTotal %></td>
-            <td><%= link_to "edit", "#" %></td>
- 
+            <td><%= link_to 'edit', user_path %></td>
           </tr>
-        <% end %>
       </tbody>
+        <% end %>
     </table>
     <% else %>
     <h3>Select a costbook from the menu</h3>

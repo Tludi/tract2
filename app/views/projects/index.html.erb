@@ -28,7 +28,7 @@
     <% @projects.each do |project| %>
       <tr>
         <td><%= project.id %></td>
-        <td><%= link_to "#{project.name}".capitalize %></td>
+        <td><%= link_to "#{project.name}".capitalize, project %></td>
         <td>number</td>
         <td>
           <%= link_to "<i class='icon-edit'></i>".html_safe, edit_project_path(project), :controller => :projects, :method => :edit %>

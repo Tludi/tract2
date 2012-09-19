@@ -1,23 +1,20 @@
-<%= link_to "Tract2", root_path, :class => 'brand' %>
-<ul class="nav pull-right">
 
- 
-    <li><%= link_to 'Projects', projects_path %></li>
-    <li><%= link_to 'Dashboard', root_path %></li>
+<% if current_user %>
+  <%= link_to "Tract2", :dashboard, :class => 'brand' %>
+<% else %>
+  <%= link_to "Tract2", root_path, :class => 'brand' %>
+<% end -%>
+<ul class="nav pull-right">
     
     <% if current_user %>
-      <li>
-      <%= link_to 'Edit account', edit_user_path(current_user.id) %>
-      </li>
-      <li><%= link_to "Logout", logout_path %></li>
+      <li><%= link_to 'Projects', projects_path %></li>
+      <li><%= link_to 'Dashboard', :dashboard %></li>
+      <li><%= link_to 'Edit account', edit_user_path(current_user.id) %></li>
+      <li><%= link_to "Logout", :logout %></li>
+      <li class="nav_non_link_text">Hi <%= current_user.username %>!</li>
     <% else %>
-      <li><%= link_to "Register", signup_path %> |</li>
-      <li><%= link_to "Login", login_path %> |</li>
+      <li><%= link_to "Register", new_account_path %></li>
+      <li><%= link_to "Login", :login %></li>
     <% end -%>
-      <li>
-      <%= link_to 'Admin', users_path %>
-      </li>
-  
- 
  
 </ul>

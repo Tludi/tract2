@@ -1,4 +1,5 @@
-<h2>DASHBOARD</h2>
+<h2><%= accountName %> Dashboard</h2>
+<hr/>
 <div class="row">
   <div class="span6">
     <header class="navbar">
@@ -16,28 +17,31 @@
     </div>
 
 
-    <table class="table table-striped ">
-      <thead><tr>
-        <th>ID</th>
-        <th>Project</th>
-      </tr></thead>
-      <tbody><tr>
-    <% @projects.take(3).each do |project| %>
-      <tr>
-        <td><%= project.id %></td>
-        <td><%= link_to "#{project.name}".capitalize, "#" %></td>
-        <td>
-          <%= link_to "<i class='icon-edit'></i>".html_safe, edit_project_path(project), :controller => :projects, :method => :edit %>
-          <%= link_to "<i class='icon-remove'></i>".html_safe, project_path(project), :confirm => "Are you sure?", :controller => :projects, :method => :delete %>
-        </td>
+    <% if @projects.empty? %>
+        <p class="well span5 center show_hide"><%= link_to "Start a Project", "#" %></p>
+    <% else %>
+      <table class="table table-striped ">
+        <thead><tr>
+          <th>ID</th>
+          <th>Project</th>
+        </tr></thead>
 
-      </tr>
+        <tbody>
+          <% @projects.take(3).each do |project| %>
+            <tr>
+              <td><%= project.id %></td>
+              <td><%= link_to "#{project.name}".capitalize, project %></td>
+              <td>
+                <%= link_to "<i class='icon-edit' alt='edit' text='edit'></i>".html_safe, edit_project_path(project), :controller => :projects, :method => :edit %>
+                <%= link_to "<i class='icon-remove'></i>".html_safe, project_path(project), :confirm => "Are you sure?", :controller => :projects, :method => :delete %>
+              </td>
+
+            </tr>
+          <% end -%>
+        </tbody>
+      </table>
+       <p class="well span5 center"><%= link_to "Show All Projects", projects_path %></p>
     <% end -%>
-
-      </tbody>
- 
-    </table>
-         <p class="well span5 center"><%= link_to "Show All Projects", "#" %></p>
   </div>
   <div class="span4">
     <h2>Recent Actions</h2>

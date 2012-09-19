@@ -32,8 +32,8 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to root_path, notice:"Project Created"}
-        format.json { render json: @project, status: :created, location: @project}
+        format.html { redirect_to :dashboard, notice:"Project Created"}
+        format.json { render json: :dashboard, status: :created, location: @project}
       else
         format.html { render action: "new"}
         format.json { render json: @project.errors, status: :unprocessable_entity }
@@ -64,7 +64,7 @@ class ProjectsController < ApplicationController
     @project.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_path }
+      format.html { redirect_to :dashboard }
       format.json { head :no_content }
     end
   end
