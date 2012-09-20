@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
-    @project = Project.new
+    @projects = @current_user.account.projects.all
+    @project = @current_user.account.projects.new
     @company_name = "Diligent Agility"
     respond_to do |format|
       format.html

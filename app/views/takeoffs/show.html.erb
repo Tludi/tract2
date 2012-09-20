@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Walltype:</b>
+  <%= @takeoff.walltype %>
+</p>
+
+<p>
+  <b>Item:</b>
+  <%= @takeoff.item %>
+</p>
+
+<p>
+  <b>Level:</b>
+  <%= @takeoff.level %>
+</p>
+
+<p>
+  <b>Length:</b>
+  <%= @takeoff.length %>
+</p>
+
+<p>
+  <b>Height:</b>
+  <%= @takeoff.height %>
+</p>
+
+<p>
+  <b>Material:</b>
+  <%= @takeoff.material %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @takeoff.project_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_takeoff_path(@takeoff) %> |
+<%= link_to 'Back', takeoffs_path %>

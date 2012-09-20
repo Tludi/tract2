@@ -1,0 +1,35 @@
+<h1>Listing takeoffs</h1>
+
+<table>
+  <tr>
+    <th>Walltype</th>
+    <th>Item</th>
+    <th>Level</th>
+    <th>Length</th>
+    <th>Height</th>
+    <th>Material</th>
+    <th>Project</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @takeoffs.each do |takeoff| %>
+  <tr>
+    <td><%= takeoff.walltype %></td>
+    <td><%= takeoff.item %></td>
+    <td><%= takeoff.level %></td>
+    <td><%= takeoff.length %></td>
+    <td><%= takeoff.height %></td>
+    <td><%= takeoff.material %></td>
+    <td><%= takeoff.project_id %></td>
+    <td><%= link_to 'Show', takeoff %></td>
+    <td><%= link_to 'Edit', edit_takeoff_path(takeoff) %></td>
+    <td><%= link_to 'Destroy', takeoff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Takeoff', new_takeoff_path %>

@@ -1,0 +1,45 @@
+<%= form_for(@takeoff) do |f| %>
+  <% if @takeoff.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@takeoff.errors.count, "error") %> prohibited this takeoff from being saved:</h2>
+
+      <ul>
+      <% @takeoff.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :walltype %><br />
+    <%= f.text_field :walltype %>
+  </div>
+  <div class="field">
+    <%= f.label :item %><br />
+    <%= f.text_field :item %>
+  </div>
+  <div class="field">
+    <%= f.label :level %><br />
+    <%= f.text_field :level %>
+  </div>
+  <div class="field">
+    <%= f.label :length %><br />
+    <%= f.text_field :length %>
+  </div>
+  <div class="field">
+    <%= f.label :height %><br />
+    <%= f.text_field :height %>
+  </div>
+  <div class="field">
+    <%= f.label :material %><br />
+    <%= f.text_field :material %>
+  </div>
+  <div class="field">
+    <%= f.label :project_id %><br />
+    <%= f.number_field :project_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -3,9 +3,8 @@ class DashboardController < ApplicationController
   before_filter :require_login
   
   def index
-    @user = User.all
-    @projects = Project.all
-    # @projects = current_user.projects
-    @project = Project.new
+    @account = @current_user.account
+    @projects = @account.projects.all
+    @project = @account.projects.new(params[:project])
   end
 end

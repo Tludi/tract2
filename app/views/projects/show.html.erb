@@ -1,2 +1,17 @@
-<h1><%= @project.name %></h1>
-<p>Find me in app/views/project/show.html.erb</p>
+<div class="row">
+  <div class="span9">
+    <header class="navbar">
+      <nav class="navbar-inner">
+        <div class="container">
+          <%= render 'projectnavigation' %>
+        </div>
+      </nav>
+    </header>
+    <p># of takeoffs: <%= @project.takeoffs.count %></p>
+  </div>
+  <div class="span2 well">
+    <p>Address: <%= @project.address1 %></p>
+    <p>Bid Date: <%= @project.bidDate %></p>
+    <p>Contact: <%= @project.contact %></p>
+  </div>
+</div>

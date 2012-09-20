@@ -1,7 +1,10 @@
 Tract2::Application.routes.draw do
   
+  resources :takeoffs
+
   resources :accounts do
     resources :users
+    resources :projects
   end
 
   # get "user_sessions/new"
@@ -20,7 +23,7 @@ Tract2::Application.routes.draw do
   resources :costbooks do
     resources :materials
   end
-  resources :projects
+  # resources :projects
 
   match 'dashboard' => "dashboard#index", :as => :dashboard
   match '/projects/:id/edit' => 'projects#edit', :via => :post
