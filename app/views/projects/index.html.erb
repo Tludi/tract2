@@ -28,11 +28,11 @@
     <% @projects.each do |project| %>
       <tr>
         <td><%= project.id %></td>
-        <td><%= link_to "#{project.name}".capitalize, project %></td>
+        <td><%= link_to "#{project.name}".capitalize, account_project_path(@account, project) %></td>
         <td>number</td>
         <td>
-          <%= link_to "<i class='icon-edit'></i>".html_safe, edit_project_path(project), :controller => :projects, :method => :edit %>
-          <%= link_to "<i class='icon-remove'></i>".html_safe, project_path(project), :confirm => "Are you sure?", :controller => :projects, :method => :delete %>
+          <%= link_to "<i class='icon-edit'></i>".html_safe, edit_account_project_path(@account, project) %>
+          <%= link_to "<i class='icon-remove'></i>".html_safe, account_project_path(@account, project), :confirm => "Are you sure?", :method => :delete %>
         </td>
 
       </tr>

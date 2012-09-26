@@ -24,16 +24,18 @@
         <thead><tr>
           <th>ID</th>
           <th>Project</th>
+          <th></th>
+          <th></th>
         </tr></thead>
 
         <tbody>
           <% @projects.take(3).each do |project| %>
             <tr>
               <td><%= project.id %></td>
-              <td><%= link_to "#{project.name}".capitalize, project %></td>
+              <td><%= link_to "#{project.name}".capitalize, account_project_path(@account, project) %></td>
               <td>
-                <%= link_to "<i class='icon-edit' alt='edit' text='edit'></i>".html_safe, edit_project_path(project), :controller => :projects, :method => :edit %>
-                <%= link_to "<i class='icon-remove'></i>".html_safe, project_path(project), :confirm => "Are you sure?", :controller => :projects, :method => :delete %>
+                <%= link_to "<i class='icon-edit'></i>".html_safe, edit_account_project_path(@account, project) %>
+                <%= link_to "<i class='icon-remove'></i>".html_safe, account_project_path(@account, project), :method => :delete, :confirm => "Are you sure?"  %>
               </td>
 
             </tr>
@@ -41,7 +43,7 @@
         </tbody>
       </table>
       <% if @projects.count > 3 %>
-       <p class="well span5 center"><%= link_to "Show All Projects", projects_path %></p>
+       <p class="well span5 center"><%= link_to "Show All Projects", account_projects_path(@account) %></p>
       <% end -%>
     <% end -%>
   </div>

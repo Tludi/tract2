@@ -1,7 +1,10 @@
 class ProjectsController < ApplicationController
+
+  before_filter :load_account
+
   def index
-    @projects = @current_user.account.projects.all
-    @project = @current_user.account.projects.new
+    @projects = @account.projects.all
+    @project = @account.projects.new
     @company_name = "Diligent Agility"
     respond_to do |format|
       format.html
@@ -10,7 +13,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
+    @project = @account.projects.find(params[:id])
 
     respond_to do |format|
       format.html
@@ -28,16 +31,11 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(params[:project])
-
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to :dashboard, notice:"Project Created"}
-        format.json { render json: :dashboard, status: :created, location: @project}
-      else
-        format.html { render action: "new"}
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    @project = @account.projects.build(params[:project])
+    if @project.save
+      redirect_to dashboard_path, :notice => "Project Created!"
+    else
+      render :index
     end
   end
 
@@ -68,4 +66,11 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    def load_account
+      @account = @current_user.account
+    end
+      
 end
