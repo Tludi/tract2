@@ -4,7 +4,8 @@ Tract2::Application.routes.draw do
 
   resources :accounts do
     resources :users
-    resources :projects
+    resources :projects 
+    resources :costbooks
   end
 
   # get "user_sessions/new"
@@ -20,9 +21,9 @@ Tract2::Application.routes.draw do
 
   resources :csi_divisions
 
-  resources :costbooks do
-    resources :materials
-  end
+  # resources :costbooks do
+  #   resources :materials
+  # end
   # resources :projects
 
   match 'dashboard' => "dashboard#index", :as => :dashboard

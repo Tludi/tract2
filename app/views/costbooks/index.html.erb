@@ -13,8 +13,8 @@
 
       <% @costbooks.each do |costbook| %>
         <h3><%= costbook.name %> Costbook
-          <span><%= link_to "<i class='icon-edit'></i>".html_safe, edit_costbook_path(costbook), :controller => :costbooks, :method => :edit %>
-          <%= link_to "<i class='icon-remove'></i>".html_safe, costbook_path(costbook), :confirm => "Are you sure?", :controller => :costbooks, :method => :delete %>
+          <span><%= link_to "<i class='icon-edit'></i>".html_safe, "#", :controller => :costbooks, :method => :edit %>
+          <%= link_to "<i class='icon-remove'></i>".html_safe, "#", :confirm => "Are you sure?", :controller => :costbooks, :method => :delete %>
         </span>
         </h3>
         <hr/>

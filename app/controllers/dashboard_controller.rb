@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
   def index
     @projects = @account.projects.all
     @project = @account.projects.new
+    @costbooks = @account.costbooks.all
   end
 
   def create

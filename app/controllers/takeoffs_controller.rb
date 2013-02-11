@@ -10,7 +10,6 @@ class TakeoffsController < ApplicationController
     end
   end
 
-  # GET /takeoffs/1
   # GET /takeoffs/1.json
   def show
     @takeoff = Takeoff.find(params[:id])

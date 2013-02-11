@@ -1,9 +1,11 @@
 class CostbooksController < ApplicationController
-  before_filter :find_costbook, :only => [:show, :edit, :update, :destroy]
+  # before_filter :find_costbook, :only => [:show, :edit, :update, :destroy]
+  before_filter :get_account
+
   # GET /costbooks
   # GET /costbooks.json
   def index
-    @costbooks = Costbook.all
+    @costbooks = @account.costbooks.all
     #@costbook = Costbook.first
     @current_costbook = @costbook
     
@@ -16,7 +18,8 @@ class CostbooksController < ApplicationController
   # GET /costbooks/1
   # GET /costbooks/1.json
   def show
-    @costbooks = Costbook.all
+    @costbooks = @account.costbooks
+    @costbook = @account.costbooks.find(params[:id])
     @material = @costbook.materials.build
 
     respond_to do |format|
@@ -28,10 +31,8 @@ class CostbooksController < ApplicationController
   # GET /costbooks/new
   # GET /costbooks/new.json
   def new
-    @costbook = Costbook.new
+    @costbook = @account.costbooks.new
     
-
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @costbook }
@@ -46,11 +47,11 @@ class CostbooksController < ApplicationController
   # POST /costbooks
   # POST /costbooks.json
   def create
-    @costbook = Costbook.new(params[:costbook])
+    @costbook = @account.costbooks.new(params[:costbook])
     @material = @costbook.materials.build(params[:material])
     respond_to do |format|
       if @costbook.save
-        format.html { redirect_to @costbook, notice: 'Costbook was successfully created.' }
+        format.html { redirect_to [@account, @costbook], notice: 'Costbook was successfully created.' }
         format.json { render json: @costbook, status: :created, location: @costbook }
       else
         format.html { render action: "new" }
@@ -100,6 +101,11 @@ class CostbooksController < ApplicationController
       @costbook = Costbook.find(params[:id])
       rescue ActiveRecord::RecordNotFound
       flash[:alert] = "Costbook not found."
-      redirect_to costbooks_path
+      redirect_to account_path
     end
+
+    def get_account
+      @account = Account.find(params[:account_id])
+    end
+
 end

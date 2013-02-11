@@ -7,7 +7,14 @@
         </div>
       </nav>
     </header>
-    <p># of takeoffs: <%= @project.takeoffs.count %></p>
+    <%= link_to "takeoffs", new_takeoff_path %>
+    <% if @project.takeoffs.count == 0 %>
+      <p class="center"><%= link_to 'Create your first takeoff for this project.', "#" %></p>
+    <% else %>
+      <% @project.takeoffs.each do |takeoff| %>
+        <p><%= takeoff.name %></p>
+      <% end -%>
+    <% end -%>
   </div>
   <div class="span2 well">
     <p>Address: <%= @project.address1 %></p>

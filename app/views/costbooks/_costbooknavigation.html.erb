@@ -8,12 +8,11 @@
     </a>
     <ul class="dropdown-menu">
 
-      <% @costbooks.each do |costbook| %>
-          <li><%= link_to "#{costbook.name} bit", costbook_path(costbook.id) %></li>
+      <% @account.costbooks.each do |costbook| %>
+          <li><%= link_to "#{costbook.id}", "#" %></li>
       <% end %>
       <hr/>
-      <li><%= link_to "Costbooks", costbooks_path %></li>
-      <li><%= link_to "New Costbook", new_costbook_path %></li>
+
 
     </ul>
   </li>

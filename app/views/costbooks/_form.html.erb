@@ -1,4 +1,4 @@
-<%= form_for(@costbook) do |f| %>
+<%= form_for([@account, @costbook]) do |f| %>
   <% if @costbook.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@costbook.errors.count, "error") %> prohibited this costbook from being saved:</h2>

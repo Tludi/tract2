@@ -14,7 +14,7 @@
     <div class="slidingDiv span8">
       <h2>New Project</h2>
       <%= render 'dashboard/projectform', :object => @project %>
-      <a href="#" class="show_hide">hide</a>
+      <a href="#" class="show_hide">^ hide ^</a>
     </div>
 
 
@@ -29,7 +29,7 @@
       <tr>
         <td><%= project.id %></td>
         <td><%= link_to "#{project.name}".capitalize, account_project_path(@account, project) %></td>
-        <td>number</td>
+        <td><%= project.takeoffs.count %></td>
         <td>
           <%= link_to "<i class='icon-edit'></i>".html_safe, edit_account_project_path(@account, project) %>
           <%= link_to "<i class='icon-remove'></i>".html_safe, account_project_path(@account, project), :confirm => "Are you sure?", :method => :delete %>
