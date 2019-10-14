@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '3.2.7'
+gem 'rails', '3.2.17'
 gem 'jquery-rails'
 gem "bootstrap-sass", ">= 2.0.3"
 gem "cancan", ">= 1.6.7"
