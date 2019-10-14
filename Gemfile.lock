@@ -76,7 +76,7 @@ GEM
       railties (>= 3.0.0)
     faraday (0.8.1)
       multipart-post (~> 1.1)
-    ffi (1.1.4)
+    ffi (1.11.1)
     gherkin (2.11.1)
       json (>= 1.4.6)
     guard (1.3.0)
